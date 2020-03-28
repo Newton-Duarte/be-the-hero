@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const { errors } = require('celebrate')
 const routes = require('./routes');
 
 // CORS
@@ -12,4 +13,7 @@ app.use(express.json());
 // Mounting routes
 app.use(routes);
 
-app.listen(3333);
+// Errors
+app.use(errors());
+
+module.exports = app;
